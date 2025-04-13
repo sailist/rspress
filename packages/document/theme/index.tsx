@@ -1,39 +1,72 @@
-import {
-  Search as PluginAlgoliaSearch,
-  ZH_LOCALES,
-} from '@rspress/plugin-algolia/runtime';
-import { NavIcon } from '@rstack-dev/doc-ui/nav-icon';
-import { Layout as BasicLayout } from 'rspress/theme';
-import { HomeLayout as BasicHomeLayout } from 'rspress/theme';
-import { ToolStack } from './components/ToolStack';
+import Tags from '@/components/Tags';
+// https://rspress.dev/guide/advanced/custom-theme#2-use-slot
+import { usePageData } from 'rspress/runtime';
+import { Layout as DefaultLayout } from 'rspress/theme';
+import componentStyles from './components.module.css';
 
-import './index.css';
-import { useLang } from 'rspress/runtime';
-
-function HomeLayout() {
-  return <BasicHomeLayout afterFeatures={<ToolStack />} />;
-}
-
+// Show all props below
 const Layout = () => {
-  return <BasicLayout beforeNavTitle={<NavIcon />} />;
-};
-
-const Search = () => {
-  const lang = useLang();
+  const { siteData, page } = usePageData();
+  // debugger;
+  const tags = page.frontmatter.tags as string[] | undefined;
   return (
-    <PluginAlgoliaSearch
-      docSearchProps={{
-        appId: '4K97EBF08L',
-        apiKey: '1ed3abb77cf42427a1ceeef2d5ca83fd',
-        indexName: 'doc_search_rspress_pages',
-        searchParameters: {
-          facetFilters: [`lang:${lang}`],
-        },
+    <DefaultLayout
+      // /* Before home hero */
+      // beforeHero={<div>beforeHero</div>}
+      // /* After home hero */
+      // afterHero={<div>afterHero</div>}
+      // /* Before home features */
+      // beforeFeatures={<div>beforeFeatures</div>}
+      // /* After home features */
+      // afterFeatures={<div>afterFeatures</div>}
+      // /* Before doc footer */
+      // beforeDocFooter={<div>beforeDocFooter</div>}
+      // /* After doc footer */
+      // afterDocFooter={<div>afterDocFooter</div>}
+      // /* Doc page front */
+      // beforeDoc={<div>beforeDoc</div>}
+      /* Doc page end */
+      // afterDoc={<div>afterDoc</div>}
+      // /* Doc content front */
+      beforeDocContent={
+        <div>
+          <Tags tags={tags} />
+        </div>
+      }
+      // /* Doc content end */
+      afterDocContent={<div></div>}
+      // /* Before the nav bar */
+      // beforeNav={<div>beforeNav</div>}
+      // /* Before the title of the nav bar in the upper left corner */
+      // beforeNavTitle={<span>😄</span>}
+      // /* Nav bar title */
+      // navTitle={<div>Custom Nav Title</div>}
+      // /* After the title of the nav bar in the upper left corner */
+      // afterNavTitle={<div>afterNavTitle</div>}
+      // /* The right corner of the nav menu */
+      // afterNavMenu={<div>afterNavMenu</div>}
+      // /* Above the left sidebar */
+      // beforeSidebar={<div>beforeSidebar</div>}
+      // /* Below the left sidebar */
+      // afterSidebar={<div>afterSidebar</div>}
+      // /* Above the right outline column */
+      // beforeOutline={<div>beforeOutline</div>}
+      // /* Below the outline column on the right */
+      // afterOutline={<div>afterOutline</div>}
+      // /* Top of the entire page */
+      // top={<div>top</div>}
+      // /* Bottom of the entire page */
+      // bottom={<div>bottom</div>}
+      /* Custom MDX components */
+      components={{
+        p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
+          <p {...props} className={componentStyles.paragraph} />
+        ),
       }}
-      locales={ZH_LOCALES}
     />
   );
 };
 
-export { Layout, HomeLayout, Search };
+export { Layout };
+
 export * from 'rspress/theme';
