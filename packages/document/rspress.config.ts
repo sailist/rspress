@@ -57,7 +57,7 @@ export default defineConfig({
     exclude: [
       'custom.tsx',
       'globalComponents/**/*',
-      // 'views/**/*',
+      'views/**/*',
       'components/**/*',
     ],
   },
