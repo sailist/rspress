@@ -1,0 +1,29 @@
+.blogHomeContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 24px;
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* 媒体查询，在小屏幕上改为单列布局 */
+@media (max-width: 768px) {
+  .blogHomeContainer {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

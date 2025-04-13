@@ -1,0 +1,84 @@
+.blogLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.blogLink:hover {
+  border-bottom-color: #1a73e8;
+  background-color: rgba(26, 115, 232, 0.05);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.description {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.date {
+  font-size: 13px;
+  color: #666;
+  text-align: right;
+  min-width: 80px;
+  margin-right: 10px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.blogLink:hover .arrow {
+  color: #1a73e8;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .blogLink:hover {
+    border-bottom-color: #4d9fff;
+    background-color: rgba(77, 159, 255, 0.05);
+  }
+
+  .title {
+    color: #e0e0e0;
+  }
+
+  .description {
+    color: #b0b0b0;
+  }
+
+  .date {
+    color: #b0b0b0;
+  }
+
+  .blogLink:hover .arrow {
+    color: #4d9fff;
+  }
+}

@@ -1,0 +1,64 @@
+.panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.panelTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.panelContent {
+  padding: 16px;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dotted #eaeaea;
+}
+
+.categoryItem:last-child {
+  border-bottom: none;
+}
+
+.categoryName {
+  font-weight: 500;
+}
+
+.categoryCount {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .panel {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .panelTitle {
+    border-bottom-color: #333;
+  }
+
+  .categoryItem {
+    border-bottom-color: #333;
+  }
+
+  .categoryCount {
+    color: #aaa;
+  }
+}

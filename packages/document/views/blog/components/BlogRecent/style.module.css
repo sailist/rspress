@@ -1,0 +1,39 @@
+.panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.panelTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.panelContent {
+  padding: 16px;
+}
+
+.blogItem {
+  margin-bottom: 8px;
+}
+
+.blogItem:last-child {
+  margin-bottom: 0;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .panel {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .panelTitle {
+    border-bottom-color: #333;
+  }
+}

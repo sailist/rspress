@@ -1,0 +1,34 @@
+.blogList {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .blogList {
+    padding: 10px 12px;
+  }
+}
+
+.yearSection {
+  margin-bottom: 30px;
+}
+
+.yearTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.blogItem {
+  margin-bottom: 2px;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .yearTitle {
+    border-bottom-color: #333;
+  }
+}
