@@ -57,7 +57,7 @@ function generateBlogPost(
   const fileName = path.basename(filePathWoExt); // 使用不带后缀的文件名
   const dateMatch = fileName.match(/(\d{4}).(\d{2}).(\d{2})/);
   if (!dateMatch) {
-    console.warn(`文件 ${fullPath} 没有日期信息`);
+    // console.warn(`文件 ${fullPath} 没有日期信息`);
     return null;
   }
   const [, year, month, day] = dateMatch;
@@ -113,11 +113,11 @@ export function blogViewPlugin(): RspressPlugin {
     addPages(config, isProd) {
       return [
         {
-          filepath: path.join(__dirname, 'BlogArchive'),
           routePath: '/blogarchive',
+          content: '',
         },
         {
-          filepath: path.join(__dirname, 'BlogHome'),
+          content: '',
           routePath: '/',
         },
         ...blogPosts.map(post => ({
