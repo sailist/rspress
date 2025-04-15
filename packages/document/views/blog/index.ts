@@ -114,10 +114,10 @@ export function blogViewPlugin(): RspressPlugin {
       return [
         {
           routePath: '/blogarchive',
-          content: '',
+          filepath: path.join(__dirname, 'BlogArchive', 'index.tsx'),
         },
         {
-          content: '',
+          filepath: path.join(__dirname, 'BlogHome', 'index.tsx'),
           routePath: '/',
         },
         ...blogPosts.map(post => ({
